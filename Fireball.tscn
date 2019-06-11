@@ -31,6 +31,7 @@ animations = [ {
 [node name="Fireball" type="Area2D"]
 scale = Vector2( 6, 6 )
 script = ExtResource( 1 )
+SPEED = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.458454, 0.152818 )
