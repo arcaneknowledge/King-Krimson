@@ -1,0 +1,54 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Fireball.gd" type="Script" id=1]
+[ext_resource path="res://Assets/FireBall/FireBall_frame1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/FireBall/FireBall_frame2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/FireBall/FireBall_frame3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/FireBall/FireBall_frame4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/FireBall/FireBall_frame6.png" type="Texture" id=6]
+[ext_resource path="res://Assets/FireBall/FireBall_frame5.png" type="Texture" id=7]
+[ext_resource path="res://Assets/FireBall/FireBall_frame7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/FireBall/FireBall_frame8.png" type="Texture" id=9]
+[ext_resource path="res://Assets/FireBall/FireBall_frame9.png" type="Texture" id=10]
+[ext_resource path="res://Assets/FireBall/FireBall_frame10.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.40139, 2.50646 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Firing",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "EnemyHit",
+"speed": 18.0
+} ]
+
+[node name="Fireball" type="Area2D"]
+scale = Vector2( 6, 6 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.458454, 0.152818 )
+scale = Vector2( 0.21875, 0.284264 )
+shape = SubResource( 1 )
+
+[node name="FireballAnim" type="AnimatedSprite" parent="."]
+position = Vector2( 0.755747, 0.0944684 )
+scale = Vector2( 0.0920835, 0.0775973 )
+frames = SubResource( 2 )
+animation = "EnemyHit"
+
+[node name="FireballTime" type="Timer" parent="FireballAnim"]
+wait_time = 0.2
+one_shot = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+[connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]
+[connection signal="timeout" from="FireballAnim/FireballTime" to="." method="_on_FireballTime_timeout"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
