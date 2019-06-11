@@ -1,10 +1,34 @@
-[gd_resource type="TileSet" load_steps=6 format=2]
+[gd_resource type="TileSet" load_steps=14 format=2]
 
 [ext_resource path="res://Assets/New_platforms.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Environment/Environment027.png" type="Texture" id=2]
+[ext_resource path="res://Assets/LavaPool/LavaPool_frame1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/LavaPool/LavaPool_frame2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/LavaPool/LavaPool_frame3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/LavaPool/LavaPool_frame4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/LavaPool/LavaPool_frame5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/LavaPool/LavaPool_frame6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Environment/Environment027.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.24421, 8.04233 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 23.9627, 14.5055 )
+
+[sub_resource type="AnimatedTexture" id=4]
+frames = 6
+fps = 12.0
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 3 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 4 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 5 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 6 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 7 )
+frame_5/delay_sec = 0.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.78327, 7.99131 )
@@ -158,7 +182,7 @@ extents = Vector2( 3.54686, 7.98122 )
 } ]
 8/z_index = 0
 9/name = "Sprite10"
-9/texture = ExtResource( 2 )
+9/texture = ExtResource( 8 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 16, 16 )
@@ -173,3 +197,19 @@ extents = Vector2( 3.54686, 7.98122 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
 } ]
 9/z_index = 0
+10/name = "Sprite11"
+10/texture = SubResource( 4 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 48, 32 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 24, 16 )
+10/navigation_offset = Vector2( 24, 16 )
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 24, 17.349 )
+} ]
+10/z_index = 0
